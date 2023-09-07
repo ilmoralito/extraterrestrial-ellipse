@@ -1,11 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import MainMenu from "../components/Main-menu.astro";
+
+const pageTitle = 'About me hell yeah!'
+
+const identity = {
+    firstName: 'Sarah',
+    country: 'Canada',
+    occupation: 'Technical writer',
+    hobbies: ['photography', 'birdwatching', 'baseball']
+}
+
+const skills: readonly string[] = ['HTML', 'CSS', 'Javascript', 'React', 'Astro', 'Writing docs']
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
-<Layout title="Welcome to my Astro.">
+<Layout title="pageTitle">
     <main>
-        <h1>About me</h1>
+        <h1>{pageTitle}</h1>
         <MainMenu></MainMenu>
         <img
             src="https://cdn.dribbble.com/users/239755/screenshots/2562298/media/54cf516be52c931190e79b1aa7418fdd.png"
@@ -14,6 +29,38 @@ import MainMenu from "../components/Main-menu.astro";
         <p>
             Hi, my name is Mario. I am a father, web developer and family member
         </p>
+        <p>Here are a few facts about me:</p>
+        <ul>
+            <li>My name is {identity.firstName}.</li>
+            <li>
+                I live in {identity.country} and I work as a
+                {identity.occupation}.
+            </li>
+            {identity.hobbies.length >= 2 &&
+            <li>
+                Two of my hobbies are: {identity.hobbies[0]} and
+                {identity.hobbies[1]}
+            </li>
+            }
+        </ul>
+        <p>My skills are:</p>
+        <ul>
+            { skills.map((skill) =>
+            <li>{skill}</li>
+            ) }
+        </ul>
+
+        <hr />
+
+        {happy &&
+        <p>I am happy to be learning Astro!</p>
+        } {finished &&
+        <p>I finished this tutorial!</p>
+        } {goal === 3 ?
+        <p>My goal is to finish in 3 days.</p>
+        :
+        <p>My goal is not 3 days.</p>
+        }
     </main>
 </Layout>
 
