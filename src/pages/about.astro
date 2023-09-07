@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MainMenu from "../components/Main-menu.astro";
+---
+
+<Layout title="Welcome to my Astro.">
+    <main>
+        <h1>About me</h1>
+        <MainMenu></MainMenu>
+        <img
+            src="https://cdn.dribbble.com/users/239755/screenshots/2562298/media/54cf516be52c931190e79b1aa7418fdd.png"
+            alt="Logo"
+        />
+        <p>
+            Hi, my name is Mario. I am a father, web developer and family member
+        </p>
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+    img {
+        width: 200px;
+        border-radius: 5px;
+        transform: rotate(-5deg);
+    }
+</style>
